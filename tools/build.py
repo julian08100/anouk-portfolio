@@ -137,7 +137,8 @@ def json_ld(src, lang, tr):
             "image": {"@type": "ImageObject", "@id": BASE + w["src"], "contentUrl": BASE + w["src"],
                       "url": BASE + w["src"], "width": w["width"], "height": w["height"],
                       "caption": tr(w["alt"]), "creator": {"@id": person_id},
-                      "creditText": "Anouk Philipsen", "copyrightNotice": "© Anouk Philipsen"},
+                      "creditText": "Anouk Philipsen", "copyrightNotice": "© Anouk Philipsen",
+                      "license": BASE + "/rechten/", "acquireLicensePage": url + "#contact"},
         })
     data = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False, separators=(",", ":"))
     return '<script type="application/ld+json" id="ld">' + data.replace("</", "<\\/") + "</script>"
